@@ -7,6 +7,7 @@ require (
 	github.com/smugalamunga/media.playground v0.0.0-20210527133907-e7706af11ed0 // indirect
 	github.com/smugalamunga/profile.playground v0.0.0-20210525125929-7511c1d9ebad // indirect
 	github.com/smugalamunga/user.playground v0.0.0-20210525125957-7549d5b36355 // indirect
+	go.temporal.io/sdk v1.8.0 // indirect
 )
 
 replace github.com/smugalamunga/user.playground => ../user.playground
