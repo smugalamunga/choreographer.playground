@@ -24,12 +24,12 @@ clean:
 	rm -rf pkg/services/choreographer*
 
 clean-certificates:
-        rm certificates/*.pem
-        rm certificates/*.srl
+	rm certificates/*.pem
+	rm certificates/*.srl
 
 generate-certificates:
-        openssl req -x509 -newkey rsa:4096 -days 365 -nodes -keyout certificates/ca-key.pem -out certificates/ca-cert.pem -subj "/C=US/ST=CA/L=Woodland/O=smugalamunga.com/OU=aoto/CN=*.smugalamunga.com/emailAddress=jkurisu@gmail.com"
-        openssl req -newkey rsa:4096 -nodes -keyout certificates/server-key.pem -out certificates/server-req.pem -subj "/C=US/ST=CA/L=Woodland/O=smugalamunga.com/OU=aoto/CN=*.aotosystems.com/emailAddress=jkurisu@gmail.com"
-        openssl x509 -req -in certificates/server-req.pem -days 60 -CA certificates/ca-cert.pem -CAkey certificates/ca-key.pem -CAcreateserial -out certificates/server-cert.pem -extfile certificates/server-ext.conf
-        openssl verify -CAfile certificates/ca-cert.pem certificates/server-cert.pem
+	openssl req -x509 -newkey rsa:4096 -days 365 -nodes -keyout certificates/ca-key.pem -out certificates/ca-cert.pem -subj "/C=US/ST=CA/L=Woodland/O=smugalamunga.com/OU=aoto/CN=*.smugalamunga.com/emailAddress=jkurisu@gmail.com"
+	openssl req -newkey rsa:4096 -nodes -keyout certificates/server-key.pem -out certificates/server-req.pem -subj "/C=US/ST=CA/L=Woodland/O=smugalamunga.com/OU=aoto/CN=*.aotosystems.com/emailAddress=jkurisu@gmail.com"
+	openssl x509 -req -in certificates/server-req.pem -days 60 -CA certificates/ca-cert.pem -CAkey certificates/ca-key.pem -CAcreateserial -out certificates/server-cert.pem -extfile certificates/server-ext.conf
+	openssl verify -CAfile certificates/ca-cert.pem certificates/server-cert.pem
 
